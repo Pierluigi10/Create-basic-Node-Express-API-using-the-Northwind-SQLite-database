@@ -6,3 +6,7 @@ GET {{url}}/ehehhehe
 
 ### Test base
 GET {{url}}
+
+
+### Test top-ten most expensive products 
+GET {{url}}/top-ten

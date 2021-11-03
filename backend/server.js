@@ -12,6 +12,10 @@ const exampleRecords = await sqm.getRecordsWithSql(
 ); // default order ascending
 // console.log(records);
 
+const topTen = await sqm.getRecordsWithSql(
+    `SELECT ProductName, UnitPrice, ProductID FROM Products ORDER BY UnitPrice DESC LIMIT 10;`
+  );
+
 const app = express();
 const port = process.env.PORT || 3044;
 
@@ -24,4 +28,9 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/top-ten", (req, res) => {
+    res.json({
+      topTen
+    });
+  });
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
