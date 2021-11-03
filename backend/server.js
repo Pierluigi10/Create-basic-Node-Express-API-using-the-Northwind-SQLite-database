@@ -7,8 +7,8 @@ const thePath = "./backend/data/northwind_database.sqlite";
 // console.log(thePath);
 
 const sqm = new SqliteManager(thePath);
-const records = await sqm.getRecordsWithSql(
-  `SELECT * FROM Products`
+const exampleRecords = await sqm.getRecordsWithSql(
+  `SELECT ProductID, ProductName, UnitPrice FROM Products LIMIT 10`
 ); // default order ascending
 // console.log(records);
 
@@ -18,7 +18,10 @@ const port = process.env.PORT || 3044;
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.json(records);
+  res.json({
+    title: 'Northwind API',
+    exampleRecords
+  });
 });
 
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`));

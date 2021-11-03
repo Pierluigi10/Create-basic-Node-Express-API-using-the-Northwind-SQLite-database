@@ -1,0 +1,8 @@
+@url = http://localhost:3044
+### test 404
+
+GET {{url}}/ehehhehe
+
+
+### Test base
+GET {{url}}
