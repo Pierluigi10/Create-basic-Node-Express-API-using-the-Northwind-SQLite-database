@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "backend": "npx modemon ./backend/server.js"
+    "backend": "npx nodemon ./backend/server.js"
   },
   "keywords": [],
   "author": "",
